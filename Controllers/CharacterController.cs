@@ -8,30 +8,28 @@ namespace dotnet_project1.Controllers;
 [Route("api/characters")]
 public class CharacterController : ControllerBase
 {
-    private static Character mage = new Character();
+    private readonly ICharacterService _characterService;
 
-    private static List<Character> characters = new List<Character>
+    public CharacterController(ICharacterService characterService)
     {
-        new Character(),
-        new Character{ Id = 1, Name = "Khadgar" }
-    };
+        _characterService = characterService;
+    }
 
     [HttpGet()]
     public IActionResult Get()
     {
-        return Ok(characters);
+        return Ok(_characterService.GetCharacters());
     }
 
     [HttpGet("{id}")]
     public IActionResult GetById(int id) 
     {
-        return Ok(characters.FirstOrDefault(character => character.Id == id));
+        return Ok(_characterService.GetCharacter(id));
     }
 
     [HttpPost]
     public IActionResult AddCharacter(Character newCharacter)
     {
-        characters.Add(newCharacter);
-        return Ok(characters);
+        return Ok(_characterService.AddCharacter(newCharacter));
     }
 }
