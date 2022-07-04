@@ -1,6 +1,6 @@
 public interface ICharacterService
 {
-    List<Character> GetCharacters();
-    Character GetCharacter(int id);
-    List<Character> AddCharacter(Character newCharacter);
+    Task<ServiceResponse<List<GetCharacterDTO>>> GetCharacters();
+    Task<ServiceResponse<GetCharacterDTO>> GetCharacter(int id);
+    Task<ServiceResponse<List<GetCharacterDTO>>> AddCharacter(AddCharacterDTO addCharacterDTO);
 }

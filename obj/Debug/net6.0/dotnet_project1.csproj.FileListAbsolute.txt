@@ -24,3 +24,5 @@
 /Users/martinslovik/Documents/dotnet_project1/obj/Debug/net6.0/dotnet_project1.pdb
 /Users/martinslovik/Documents/dotnet_project1/obj/Debug/net6.0/dotnet_project1.genruntimeconfig.cache
 /Users/martinslovik/Documents/dotnet_project1/obj/Debug/net6.0/ref/dotnet_project1.dll
+/Users/martinslovik/Documents/dotnet_project1/bin/Debug/net6.0/AutoMapper.dll
+/Users/martinslovik/Documents/dotnet_project1/bin/Debug/net6.0/AutoMapper.Extensions.Microsoft.DependencyInjection.dll
