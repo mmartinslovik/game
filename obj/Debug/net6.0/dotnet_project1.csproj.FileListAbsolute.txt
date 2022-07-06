@@ -34,3 +34,11 @@
 /Users/martinslovik/Documents/dotnet_project1/bin/Debug/net6.0/Microsoft.Extensions.Caching.Memory.dll
 /Users/martinslovik/Documents/dotnet_project1/bin/Debug/net6.0/MySqlConnector.dll
 /Users/martinslovik/Documents/dotnet_project1/bin/Debug/net6.0/Pomelo.EntityFrameworkCore.MySql.dll
+/Users/martinslovik/Documents/dotnet_project1/bin/Debug/net6.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
+/Users/martinslovik/Documents/dotnet_project1/bin/Debug/net6.0/Microsoft.IdentityModel.Abstractions.dll
+/Users/martinslovik/Documents/dotnet_project1/bin/Debug/net6.0/Microsoft.IdentityModel.JsonWebTokens.dll
+/Users/martinslovik/Documents/dotnet_project1/bin/Debug/net6.0/Microsoft.IdentityModel.Logging.dll
+/Users/martinslovik/Documents/dotnet_project1/bin/Debug/net6.0/Microsoft.IdentityModel.Protocols.dll
+/Users/martinslovik/Documents/dotnet_project1/bin/Debug/net6.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+/Users/martinslovik/Documents/dotnet_project1/bin/Debug/net6.0/Microsoft.IdentityModel.Tokens.dll
+/Users/martinslovik/Documents/dotnet_project1/bin/Debug/net6.0/System.IdentityModel.Tokens.Jwt.dll

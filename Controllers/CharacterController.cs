@@ -1,7 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
 
-namespace dotnet_project1.Controllers;
-
+[Authorize]
 [ApiController]
 [Route("api/characters")]
 public class CharacterController : ControllerBase
@@ -13,10 +14,12 @@ public class CharacterController : ControllerBase
         _characterService = characterService;
     }
 
+    // [AllowAnonymous]
     [HttpGet]
     public async Task<IActionResult> Get()
     {
-        return Ok(await _characterService.GetCharacters());
+        int userId = int.Parse(User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier).Value);
+        return Ok(await _characterService.GetCharacters(userId));
     }
 
     [HttpGet("{id}")]
