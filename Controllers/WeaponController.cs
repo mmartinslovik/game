@@ -19,5 +19,4 @@ public class WeaponController : ControllerBase
     {
         return Ok(await _weaponService.AddWeapon(newWeapon));
     }
-
 }
