@@ -19,7 +19,7 @@ public class CharacterService : ICharacterService
     public async Task<ServiceResponse<List<GetCharacterDTO>>> GetCharacters()
     {
         ServiceResponse<List<GetCharacterDTO>> serviceResponse = new ServiceResponse<List<GetCharacterDTO>>();
-        List<Character> dbCharacters = await _context.Characters.Where(c => c.User.Id == GetUserId()).ToListAsync();
+        List<Character> dbCharacters = await _context.Characters.Include(c => c.Weapon).Where(c => c.User.Id == GetUserId()).ToListAsync();
         serviceResponse.Data = (dbCharacters.Select(c => _mapper.Map<GetCharacterDTO>(c))).ToList();
 
         return serviceResponse;
@@ -28,7 +28,7 @@ public class CharacterService : ICharacterService
     public async Task<ServiceResponse<GetCharacterDTO>> GetCharacter(int id)
     {
         ServiceResponse<GetCharacterDTO> serviceResponse = new ServiceResponse<GetCharacterDTO>();
-        Character dbCharacter = await _context.Characters.FirstOrDefaultAsync(c => c.Id == id && c.User.Id == GetUserId());
+        Character dbCharacter = await _context.Characters.Include(c => c.Weapon).FirstOrDefaultAsync(c => c.Id == id && c.User.Id == GetUserId());
         serviceResponse.Data = _mapper.Map<GetCharacterDTO>(dbCharacter);
 
         return serviceResponse;
@@ -42,7 +42,7 @@ public class CharacterService : ICharacterService
 
         await _context.Characters.AddAsync(character);
         await _context.SaveChangesAsync();
-        serviceResponse.Data = (_context.Characters.Where(c => c.User.Id == GetUserId()).Select(c => _mapper.Map<GetCharacterDTO>(c))).ToList();
+        serviceResponse.Data = (_context.Characters.Include(c => c.Weapon).Where(c => c.User.Id == GetUserId()).Select(c => _mapper.Map<GetCharacterDTO>(c))).ToList();
 
         return serviceResponse;
     }
@@ -52,7 +52,7 @@ public class CharacterService : ICharacterService
         ServiceResponse<GetCharacterDTO> serviceResponse = new ServiceResponse<GetCharacterDTO>();
         try
         {
-            Character character = await _context.Characters.Include(c => c.User).FirstOrDefaultAsync(c => c.Id == updatedCharacter.Id);
+            Character character = await _context.Characters.Include(c => c.User).Include(c => c.Weapon).FirstOrDefaultAsync(c => c.Id == updatedCharacter.Id);
             if (character.User.Id == GetUserId())
             {
                 character.Name = updatedCharacter.Name;
@@ -92,7 +92,7 @@ public class CharacterService : ICharacterService
             {
                 _context.Characters.Remove(character);
                 await _context.SaveChangesAsync();
-                serviceResponse.Data = (_context.Characters.Where(c => c.User.Id == GetUserId()).Select(c => _mapper.Map<GetCharacterDTO>(c))).ToList();
+                serviceResponse.Data = (_context.Characters.Include(c => c.Weapon).Where(c => c.User.Id == GetUserId()).Select(c => _mapper.Map<GetCharacterDTO>(c))).ToList();
             }
             else
             {
