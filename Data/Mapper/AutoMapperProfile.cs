@@ -9,5 +9,6 @@ public class AutoMapperProfile : Profile
         CreateMap<AddWeaponDTO, Weapon>();   
         CreateMap<Weapon, GetWeaponDTO>();
         CreateMap<Skill, GetSkillDTO>();
+        CreateMap<Character, HighscoreDTO>();
     } 
 }

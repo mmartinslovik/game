@@ -24,5 +24,17 @@ public class FightController : ControllerBase
     {
         return Ok(await _fightService.SkillAttack(request));
     }
+
+    [HttpPost]
+    public async Task<IActionResult> Fight(FightRequestDTO request)
+    {
+        return Ok(await _fightService.Fight(request));
+    }
+
+    [HttpGet("score")]
+    public async Task<IActionResult> GetHighScore()
+    {
+        return Ok(await _fightService.GetHighscore());
+    }
 }
 
