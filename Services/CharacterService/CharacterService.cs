@@ -19,10 +19,17 @@ public class CharacterService : ICharacterService
     public async Task<ServiceResponse<List<GetCharacterDTO>>> GetCharacters()
     {
         ServiceResponse<List<GetCharacterDTO>> serviceResponse = new ServiceResponse<List<GetCharacterDTO>>();
-        List<Character> dbCharacters = await _context.Characters
-            .Include(c => c.Weapon)
-            .Include(c => c.CharacterSkills).ThenInclude(cs => cs.Skill)
-            .Where(c => c.User.Id == GetUserId()).ToListAsync();
+        List<Character> dbCharacters = 
+            GetUserRole().Equals("Admin") ?
+                await _context.Characters
+                    .Include(c => c.Weapon)
+                    .Include(c => c.CharacterSkills).ThenInclude(cs => cs.Skill)
+                    .ToListAsync() :
+                await _context.Characters
+                    .Include(c => c.Weapon)
+                    .Include(c => c.CharacterSkills).ThenInclude(cs => cs.Skill)
+                    .Where(c => c.User.Id == GetUserId()).ToListAsync();
+                    
         serviceResponse.Data = (dbCharacters.Select(c => _mapper.Map<GetCharacterDTO>(c))).ToList();
 
         return serviceResponse;
@@ -126,4 +133,6 @@ public class CharacterService : ICharacterService
     }
 
     private int GetUserId() => int.Parse(_httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier));
+
+    private string GetUserRole() => _httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.Role);
 }

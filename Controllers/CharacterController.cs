@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
 using System.Security.Claims;
 
-[Authorize]
+[Authorize(Roles = "Player, Admin")]
 [ApiController]
 [Route("api/characters")]
 public class CharacterController : ControllerBase
