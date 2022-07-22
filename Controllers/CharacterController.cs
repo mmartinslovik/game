@@ -1,10 +1,12 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
 using System.Security.Claims;
+using System.Web.Http.Cors;
 
 [Authorize(Roles = "Player, Admin")]
 [ApiController]
 [Route("api/characters")]
+[EnableCors(origins: "*", headers: "*", methods: "*")]
 public class CharacterController : ControllerBase
 {
     private readonly ICharacterService _characterService;

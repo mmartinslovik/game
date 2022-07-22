@@ -42,3 +42,15 @@
 /Users/martinslovik/Documents/dotnet_project1/bin/Debug/net6.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 /Users/martinslovik/Documents/dotnet_project1/bin/Debug/net6.0/Microsoft.IdentityModel.Tokens.dll
 /Users/martinslovik/Documents/dotnet_project1/bin/Debug/net6.0/System.IdentityModel.Tokens.Jwt.dll
+/Users/martinslovik/Documents/dotnet_project1/bin/Debug/net6.0/frontend/angular.json
+/Users/martinslovik/Documents/dotnet_project1/bin/Debug/net6.0/frontend/package-lock.json
+/Users/martinslovik/Documents/dotnet_project1/bin/Debug/net6.0/frontend/package.json
+/Users/martinslovik/Documents/dotnet_project1/bin/Debug/net6.0/frontend/tsconfig.app.json
+/Users/martinslovik/Documents/dotnet_project1/bin/Debug/net6.0/frontend/tsconfig.json
+/Users/martinslovik/Documents/dotnet_project1/bin/Debug/net6.0/frontend/tsconfig.spec.json
+/Users/martinslovik/Documents/dotnet_project1/bin/Debug/net6.0/System.Web.Cors.dll
+/Users/martinslovik/Documents/dotnet_project1/bin/Debug/net6.0/System.Net.Http.Formatting.dll
+/Users/martinslovik/Documents/dotnet_project1/bin/Debug/net6.0/System.Web.Http.dll
+/Users/martinslovik/Documents/dotnet_project1/bin/Debug/net6.0/System.Web.Http.Cors.dll
+/Users/martinslovik/Documents/dotnet_project1/bin/Debug/net6.0/Newtonsoft.Json.dll
+/Users/martinslovik/Documents/dotnet_project1/bin/Debug/net6.0/Newtonsoft.Json.Bson.dll
