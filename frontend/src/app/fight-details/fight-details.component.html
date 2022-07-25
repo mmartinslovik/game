@@ -1,0 +1,16 @@
+<h2>Score</h2>
+
+<div *ngFor="let score of scores">
+  <h3>
+    <a
+      [title]="score.name + ' details'"
+      [routerLink]="['/characters', score.id]"
+    >
+      {{ score.name }}
+    </a>
+  </h3>
+  <h4>
+    {{ score.victories }}
+  </h4>
+</div>
+
