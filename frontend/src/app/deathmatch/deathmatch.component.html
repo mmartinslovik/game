@@ -1,0 +1,11 @@
+<h3>Deathmatch</h3>
+
+<div *ngFor="let fighter of fighters">
+  <span>{{ fighter.name }}</span>
+</div>
+
+<button type="button" (click)="startDeathmatch()">Fight!</button>
+
+<div>
+    {{ fightLog }}
+</div>

@@ -11,6 +11,7 @@ import { TokenInterceptorService } from './service/token-service/token-intercept
 import { CharacterDetailsComponent } from './character-details/character-details.component';
 import { UserLoginComponent } from './user-login/user-login.component';
 import { FightDetailsComponent } from './fight-details/fight-details.component';
+import { DeathmatchComponent } from './deathmatch/deathmatch.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { FightDetailsComponent } from './fight-details/fight-details.component';
     CharacterDetailsComponent,
     UserLoginComponent,
     FightDetailsComponent,
+    DeathmatchComponent,
   ],
   imports: [
     BrowserModule,
@@ -28,9 +30,10 @@ import { FightDetailsComponent } from './fight-details/fight-details.component';
       { path: 'characters/:characterId', component: CharacterDetailsComponent },
       { path: 'login', component: UserLoginComponent },
       { path: 'score', component: FightDetailsComponent },
+      { path: 'deathmatch', component: DeathmatchComponent },
     ]),
     HttpClientModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [
     {
@@ -39,6 +42,6 @@ import { FightDetailsComponent } from './fight-details/fight-details.component';
       multi: true,
     },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

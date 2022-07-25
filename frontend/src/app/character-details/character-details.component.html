@@ -3,4 +3,5 @@
 <div *ngIf="character">
   <h3>{{ character.name }}</h3>
   <h4>{{ character.hitPoints }}</h4>
+  <button type="button" (click)="addToDeathmatch(character)">Fight</button>
 </div>

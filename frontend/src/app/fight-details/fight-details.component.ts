@@ -12,8 +12,8 @@ export class FightDetailsComponent implements OnInit {
   constructor(private fightService: FightService) { }
 
   ngOnInit(): void {
-    this.fightService.getFightScore().subscribe((data) => {
-      this.scores = data.data;
+    this.fightService.getFightScore().subscribe((response) => {
+      this.scores = response.data;
     });
   }
 
