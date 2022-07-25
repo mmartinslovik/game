@@ -8,17 +8,20 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CharacterListComponent } from './character-list/character-list.component';
 import { TokenInterceptorService } from './token-interceptor.service';
+import { CharacterDetailsComponent } from './character-details/character-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CharacterListComponent,
+    CharacterDetailsComponent,
   ],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
     RouterModule.forRoot([
       { path: 'characters', component: CharacterListComponent },
+      { path: 'characters/:characterId', component: CharacterDetailsComponent },
     ]),
     HttpClientModule
   ],

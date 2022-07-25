@@ -2,7 +2,10 @@
 
 <div *ngFor="let character of characters">
   <h3>
-    <a [title]="character.name + ' details'">
+    <a
+      [title]="character.name + ' details'"
+      [routerLink]="['/characters', character.id]"
+    >
       {{ character.name }}
     </a>
   </h3>
