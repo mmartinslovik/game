@@ -30,9 +30,9 @@ export interface ISkillData {
 }
 
 export interface ICharacterResponse {
-  data: ICharacterData | ICharacterData[] | null
-  success: boolean
-  message: string | null
+  data: ICharacterData | ICharacterData[] | null;
+  success: boolean;
+  message: string | null;
 }
 
 @Injectable({
@@ -48,6 +48,8 @@ export class CharacterService {
   }
 
   public getById(characterId: string | null): Observable<ICharacterResponse> {
-    return this.http.get<ICharacterResponse>(CHARACTERS_API + Number(characterId));
+    return this.http.get<ICharacterResponse>(
+      CHARACTERS_API + Number(characterId)
+    );
   }
 }

@@ -12,6 +12,7 @@ import { CharacterDetailsComponent } from './character-details/character-details
 import { UserLoginComponent } from './user-login/user-login.component';
 import { FightDetailsComponent } from './fight-details/fight-details.component';
 import { DeathmatchComponent } from './deathmatch/deathmatch.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { DeathmatchComponent } from './deathmatch/deathmatch.component';
     UserLoginComponent,
     FightDetailsComponent,
     DeathmatchComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,16 +1,49 @@
-<h2>Score</h2>
-
-<div *ngFor="let score of scores">
-  <h3>
-    <a
-      [title]="score.name + ' details'"
-      [routerLink]="['/characters', score.id]"
-    >
-      {{ score.name }}
-    </a>
-  </h3>
-  <h4>
-    {{ score.victories }}
-  </h4>
+<div class="px-3 md:lg:xl:px-40 py-20 font-serif">
+  <div class="flex flex-col">
+    <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+      <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
+        <div class="overflow-hidden">
+          <table
+            class="min-w-full bg-slate-900 text-white font-mono rounded-md"
+          >
+            <thead class="border-b border-t-slate-500 text-xl font-bold">
+              <tr>
+                <th scope="col" class="px-6 py-4 text-left">Name</th>
+                <th scope="col" class="px-6 py-4 text-center">Fights</th>
+                <th scope="col" class="px-6 py-4 text-center">Victories</th>
+                <th scope="col" class="px-6 py-4 text-center">Deafeats</th>
+                <th scope="col" class="px-6 py-4 text-center">Score</th>
+              </tr>
+            </thead>
+            <tbody class="font-serif">
+              <tr *ngFor="let score of scores">
+                <td class="px-6 py-4 text-lg">
+                  <a
+                    [title]="score.name + ' details'"
+                    [routerLink]="['/characters', score.id]"
+                  >
+                  {{ score.name }}</a>
+                </td>
+                <td class="text-base font-light px-6 py-4 text-center">
+                  {{ score.fights }}
+                </td>
+                <td class="text-base font-light px-6 py-4 text-center">
+                  {{ score.victories }}
+                </td>
+                <td class="text-base font-light px-6 py-4 text-center">
+                  {{ score.defeats }}
+                </td>
+                <td *ngIf="(score.victories / score.fights)*100 >= 50" class="text-base font-light px-6 py-4 text-center text-green-200">
+                  {{ (score.victories / score.fights)*100 | number }}%
+                </td>
+                <td *ngIf="(score.victories / score.fights)*100 < 50" class="text-base font-light px-6 py-4 text-center text-red-200">
+                  {{ (score.victories / score.fights)*100 | number }}%
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-
