@@ -1,11 +1,66 @@
-<h3>Deathmatch</h3>
+<div class="container font-serif">
+  <h1 class="text-center pb-4 pt-2 text-xl font-bold text-white">Deathmatch</h1>
 
-<div *ngFor="let fighter of fighters">
-  <span>{{ fighter.name }}</span>
-</div>
+  <!-- <div *ngFor="let fighter of fighters">
+    <app-character-details [character]="fighter"></app-character-details>
+  </div> -->
 
-<button type="button" (click)="startDeathmatch()">Fight!</button>
+  <div class="flex justify-center my-4">
+    <button
+      class="font-mono border border-gray-200 bg-gray-200 text-gray-700 rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:bg-gray-300 focus:outline-none focus:shadow-outline"
+      type="button"
+      (click)="startDeathmatch()"
+    >
+      Start!
+    </button>
+    <button
+      class="font-mono border border-gray-200 bg-gray-200 text-gray-700 rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:bg-gray-300 focus:outline-none focus:shadow-outline"
+      type="button"
+      (click)="clearDeathmatch()"
+    >
+      Clear
+    </button>
+  </div>
 
-<div>
-    {{ fightLog }}
+  <div
+    *ngFor="let log of logs; index as i"
+    class="flex flex-col md:grid grid-cols-9 mx-auto p-2 text-white"
+  >
+    <!-- left -->
+    <div *ngIf="i % 2 == 0" class="flex flex-row-reverse md:contents">
+      <div
+        class="bg-slate-900 col-start-1 col-end-5 p-4 rounded-xl my-4 ml-auto shadow-md"
+      >
+        <div class="leading-tight text-justify">
+          {{ log }}
+        </div>
+      </div>
+      <div class="col-start-5 col-end-6 md:mx-auto relative mr-10">
+        <div class="h-full w-6 flex items-center justify-center">
+          <div class="h-full w-1 bg-slate-400 pointer-events-none"></div>
+        </div>
+        <div
+          class="w-6 h-6 absolute top-1/2 -mt-3 rounded-full bg-slate-900 shadow"
+        ></div>
+      </div>
+    </div>
+    <!-- right -->
+    <div *ngIf="i % 2 == 1" class="flex md:contents">
+      <div class="col-start-5 col-end-6 mr-10 md:mx-auto relative">
+        <div class="h-full w-6 flex items-center justify-center">
+          <div class="h-full w-1 bg-slate-400 pointer-events-none"></div>
+        </div>
+        <div
+          class="w-6 h-6 absolute top-1/2 -mt-3 rounded-full bg-slate-900 shadow"
+        ></div>
+      </div>
+      <div
+        class="bg-slate-900 col-start-6 col-end-10 p-4 rounded-xl my-4 mr-auto shadow-md"
+      >
+        <div class="leading-tight text-justify">
+          {{ log }}
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

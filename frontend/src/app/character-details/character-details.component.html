@@ -4,14 +4,9 @@
       class="bg-slate-900 text-white overflow-hidden rounded-md max-w-sm p-2 min-h-[500px] flex flex-col drop-shadow-2xl w-1/2"
     >
       <div>
-        <a
-          [title]="character.name + ' details'"
-          [routerLink]="['/characters', character.id]"
-        >
-          <h3 class="text-center pb-4 pt-2 text-xl font-bold">
-            {{ character.name }}
-          </h3>
-        </a>
+        <h3 class="text-center pb-4 pt-2 text-xl font-bold">
+          {{ character.name }}
+        </h3>
         <h3 class="text-center pb-4 pt-2 text-base text-slate-500">
           {{ character.className }}
         </h3>
@@ -29,21 +24,15 @@
           <div class="text-left pl-8 pt-2 text-base text-slate-500 border-b">
             Attributes
           </div>
-          <div class="text-left text-base pl-8 pb-4 pt-2">
-            Hit Points
-          </div>
-          <div class="text-left text-base pl-8 pb-4 pt-2">
-            Strength
-          </div>
-          <div class="text-left text-base pl-8 pb-4 pt-2">
-            Defense
-          </div>
-          <div class="text-left text-base pl-8 pb-4 pt-2">
-            Intelligence
-          </div>
+          <div class="text-left text-base pl-8 pb-4 pt-2">Hit Points</div>
+          <div class="text-left text-base pl-8 pb-4 pt-2">Strength</div>
+          <div class="text-left text-base pl-8 pb-4 pt-2">Defense</div>
+          <div class="text-left text-base pl-8 pb-4 pt-2">Intelligence</div>
         </div>
         <div class="basis-1/3 justify-items-stretch">
-          <div class="text-left pt-2 text-base text-slate-500 border-b">Value</div>
+          <div class="text-left pt-2 text-base text-slate-500 border-b">
+            Value
+          </div>
           <div class="text-base pb-4 pt-2 text-left">
             {{ character.hitPoints }}
           </div>

@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { HttpClient } from '@angular/common/http';
@@ -19,7 +19,7 @@ import {
   styleUrls: ['./character-details.component.css'],
 })
 export class CharacterDetailsComponent implements OnInit, OnDestroy {
-  character: ICharacter | any;
+  @Input() character: ICharacter | any;
 
   constructor(
     private route: ActivatedRoute,
@@ -44,9 +44,8 @@ export class CharacterDetailsComponent implements OnInit, OnDestroy {
     this.fightService.saveFighters();
   }
 
-  public addToDeathmatch(character: ICharacterData): void {
+  public addToDeathmatch(character: ICharacter): void {
     this.fightService.addToDeathmatch(character);
     console.log(this.fightService.getFighters());
-    window.alert('Character added to the deathmatch!');
   }
 }

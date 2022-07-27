@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {
   CharacterService,
@@ -31,7 +31,7 @@ export interface ICharacter extends ICharacterData {
   styleUrls: ['./character-list.component.css'],
 })
 export class CharacterListComponent implements OnInit {
-  characters: ICharacter[] | any;
+  @Input() characters: ICharacter[] | any;
 
   constructor(private characterService: CharacterService) {}
 

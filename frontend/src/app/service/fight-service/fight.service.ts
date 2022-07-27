@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable, Input, Output } from '@angular/core';
 import { Observable } from 'rxjs';
+import { ICharacter } from 'src/app/character-list/character-list.component';
 import { ICharacterData } from '../character-service/character.service';
 
 const FIGHT_API = 'https://localhost:7196/api/fight/';
@@ -24,7 +25,7 @@ export interface IFightResponse {
 
 export interface IDeathmatchResponse {
   data: {
-    log: string;
+    log: string[];
   };
   success: boolean;
   message: string | null;
@@ -34,7 +35,7 @@ export interface IDeathmatchResponse {
   providedIn: 'root',
 })
 export class FightService {
-  fighters: ICharacterData[] | any = [];
+  fighters: ICharacter[] | any = [];
 
   constructor(private http: HttpClient) {}
 
@@ -42,7 +43,7 @@ export class FightService {
     return this.http.get<IFightResponse>(FIGHT_API + 'score');
   }
 
-  public addToDeathmatch(fighter: ICharacterData): ICharacterData[] {
+  public addToDeathmatch(fighter: ICharacter): ICharacter[] {
     this.fighters?.push(fighter);
     return this.fighters;
   }
@@ -52,15 +53,20 @@ export class FightService {
     return this.fighters;
   }
 
-  public getFighters(): ICharacterData[] {
+  public getFighters(): ICharacter[] | [] {
     return this.fighters;
   }
 
   public saveFighters(): void {
     let characterIds: number[] = [];
-    this.getFighters().forEach((f) => characterIds.push(f.id));
+    let fighters: ICharacter[] = [];
+    this.getFighters().forEach((f) => {
+      characterIds.push(f.id);
+      fighters.push(f);
+    });
 
     localStorage.setItem('characterids', JSON.stringify(characterIds));
+    localStorage.setItem('fighters', JSON.stringify(fighters));
   }
 
   public startDeathmatch(): Observable<IDeathmatchResponse> {
