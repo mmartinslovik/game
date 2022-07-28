@@ -1,63 +1,80 @@
-<div class="bg-slate-900 text-white overflow-hidden rounded-md max-w-sm p-2 h-[550px] flex flex-col drop-shadow-2xl antialiased">
-  <div>
-    <a
-      [title]="character.name + ' details'"
-      [routerLink]="['/characters', character.id]"
-    >
-      <div class="text-center pb-4 pt-2 text-xl font-bold">
-        • {{ character.name }} •
-      </div>
-    </a>
-    <div class="flex flex-col justify-center">
-      <div class="{{ character.color }} text-white text-center mx-4">
-        {{ character.className[0] }}
-      </div>
-      <div class="text-center pb-4 pt-2 text-base text-slate-500 uppercase">
-        {{ character.className }}
-      </div>
-    </div>
-  </div>
-  <div class="flex items-center justify-center min-h-[100px] mx-4">
-    <img
-      class="object-cover h-48 w-96 rounded"
-      src="{{ character.image }}"
-      alt="{{ character.name }}"
-    />
-  </div>
+<a
+  [title]="character.name + ' details'"
+  [routerLink]="['/characters', character.id]"
+>
+  <div
+    class="bg-slate-900 text-white overflow-hidden rounded-md max-w-sm p-2 h-[550px] flex flex-col drop-shadow-2xl antialiased"
+  >
+    <div class="border border-slate-500 m-1 rounded h-[550px]">
+      <div>
+        <div class="text-center pb-4 pt-2 text-xl font-bold">
+          • {{ character.name }} •
+        </div>
 
-  <div class="flex flex-row">
-    <div class="basis-2/3">
-      <div class="text-left pl-8 pt-2 text-base text-slate-500 uppercase">Weapon</div>
-      <div class="text-left text-semibold text-lg pl-8 pb-4 pt-2">
-        {{ character.weapon.name }}
+        <div class="flex flex-col justify-center">
+          <div
+            class="{{
+              character.color
+            }} text-white text-center mx-4 font-extrabold rounded"
+          >
+            {{ character.className[0] }}
+          </div>
+          <div class="text-center pb-4 pt-2 text-base text-slate-500 uppercase">
+            {{ character.className }}
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="basis-1/3 justify-items-stretch">
-      <div class="text-left pt-2 text-base text-slate-500 uppercase">Damage</div>
-      <div class="text-base p-2 text-left">
-        {{ character.weapon.damage }}
+      <div class="flex items-center justify-center min-h-[100px] mx-4">
+        <img
+          class="object-cover h-44 w-80 rounded"
+          src="{{ character.image }}"
+          alt="{{ character.name }}"
+        />
       </div>
-    </div>
-  </div>
 
-  <div class="flex flex-row">
-    <div class="basis-2/3">
-      <div class="text-left pl-8 pt-2 text-base text-slate-500 uppercase">Skills</div>
-      <div
-        *ngFor="let skill of character.skills"
-        class="text-left text-semibold text-base pl-8 pb-4 pt-2"
-      >
-        {{ skill.name }}
+      <div class="flex flex-row">
+        <div class="basis-2/3">
+          <div class="text-left pl-8 pt-2 text-base text-slate-500 uppercase">
+            Weapon
+          </div>
+          <div class="text-left text-semibold text-lg pl-8 pb-4 pt-2">
+            {{ character.weapon.name }}
+          </div>
+        </div>
+        <div class="basis-1/3 justify-items-stretch">
+          <div class="text-left pt-2 text-base text-slate-500 uppercase">
+            Damage
+          </div>
+          <div class="text-base p-2 text-left">
+            {{ character.weapon.damage }}
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="basis-1/3 justify-items-stretch">
-      <div class="text-left pt-2 text-base text-slate-500 uppercase">Damage</div>
-      <div
-        *ngFor="let skill of character.skills"
-        class="text-base p-2 text-left"
-      >
-        {{ skill.damage }}
+
+      <div class="flex flex-row">
+        <div class="basis-2/3">
+          <div class="text-left pl-8 pt-2 text-base text-slate-500 uppercase">
+            Skills
+          </div>
+          <div
+            *ngFor="let skill of character.skills"
+            class="text-left text-semibold text-base pl-8 pt-2"
+          >
+            {{ skill.name }}
+          </div>
+        </div>
+        <div class="basis-1/3 justify-items-stretch">
+          <div class="text-left pt-2 text-base text-slate-500 uppercase">
+            Damage
+          </div>
+          <div
+            *ngFor="let skill of character.skills"
+            class="text-base pt-2 text-left"
+          >
+            {{ skill.damage }}
+          </div>
+        </div>
       </div>
     </div>
   </div>
-</div>
+</a>

@@ -54,3 +54,4 @@
 /Users/martinslovik/Documents/dotnet_project1/bin/Debug/net6.0/System.Web.Http.Cors.dll
 /Users/martinslovik/Documents/dotnet_project1/bin/Debug/net6.0/Newtonsoft.Json.dll
 /Users/martinslovik/Documents/dotnet_project1/bin/Debug/net6.0/Newtonsoft.Json.Bson.dll
+/Users/martinslovik/Documents/dotnet_project1/bin/Debug/net6.0/frontend/src/assets/data.json

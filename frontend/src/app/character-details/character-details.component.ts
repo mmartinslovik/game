@@ -31,7 +31,8 @@ export class CharacterDetailsComponent implements OnInit, OnDestroy {
       .getById(characterIdFromRoute)
       .subscribe((response) => {
         this.character = response.data;
-        this.characterService.setAdditional(this.character)
+        this.characterService.setAdditional(this.character);
+        console.log(this.character.color)
       });
   }
 
