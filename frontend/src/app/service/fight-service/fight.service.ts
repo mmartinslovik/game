@@ -1,8 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable, Input, Output } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ICharacter } from 'src/app/character-list/character-list.component';
-import { ICharacterData } from '../character-service/character.service';
+import { ICharacter, ICharacterData } from '../character-service/character.service';
 
 const FIGHT_API = 'https://localhost:7196/api/fight/';
 const httpOptions = {

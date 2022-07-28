@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import * as data from '../../../assets/data.json';
 
 const CHARACTERS_API = 'https://localhost:7196/api/characters/';
 const httpOptions = {
@@ -35,6 +36,19 @@ export interface ICharacterResponse {
   message: string | null;
 }
 
+export interface ICharacter extends ICharacterData {
+  color: string;
+  className: string;
+  image: string
+}
+
+interface IJsonData {
+  class: string,
+  color: string,
+  image: string,
+
+}
+
 @Injectable({
   providedIn: 'root',
 })
@@ -51,5 +65,16 @@ export class CharacterService {
     return this.http.get<ICharacterResponse>(
       CHARACTERS_API + Number(characterId)
     );
+  }
+
+  public setAdditional(character: ICharacter): ICharacter {
+    // @ts-ignore
+    const characterData: IJsonData = data?.[character.name];
+
+    character.className = characterData.class;
+    character.color = characterData.color;
+    character.image = characterData.image;
+
+    return character;
   }
 }

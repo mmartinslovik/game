@@ -1,0 +1,17 @@
+{
+  "Valeera": {
+    "class": "Rogue",
+    "color": "bg-indigo-700",
+    "image": "https://www.geekgirlauthority.com/wp-content/uploads/2020/05/hearthstone-Valeera-Sanguinar.jpg"
+  },
+  "Medivh": {
+    "class": "Mage",
+    "color": "bg-blue-700",
+    "image": "https://www.destructoid.com/ul/366524-GG2.jpg"
+  },
+  "Magni": {
+    "class": "Warrior",
+    "color": "bg-red-800",
+    "image": "https://www.wowfan.cz/images/1124/heroes/8rnwvzplkpmd7aq_1485023763.jpg"
+  }
+}

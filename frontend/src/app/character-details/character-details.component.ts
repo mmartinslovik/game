@@ -4,14 +4,10 @@ import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import {
   CharacterService,
+  ICharacter,
   ICharacterData,
 } from '../service/character-service/character.service';
 import { FightService } from '../service/fight-service/fight.service';
-import {
-  ClassColor,
-  ClassNumber,
-  ICharacter,
-} from '../character-list/character-list.component';
 
 @Component({
   selector: 'app-character-details',
@@ -35,8 +31,7 @@ export class CharacterDetailsComponent implements OnInit, OnDestroy {
       .getById(characterIdFromRoute)
       .subscribe((response) => {
         this.character = response.data;
-        this.character.className = ClassNumber[Number(this.character.class)];
-        this.character.color = ClassColor[Number(this.character.class)];
+        this.characterService.setAdditional(this.character)
       });
   }
 
