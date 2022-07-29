@@ -1,34 +1,65 @@
-<form
-  name="form"
-  (ngSubmit)="f.form.valid && onSubmit()"
-  #f="ngForm"
-  novalidate
->
-  <div>
-    <label for="username">Username</label>
-    <input
-      type="text"
-      name="username"
-      [(ngModel)]="form.username"
-      required
-      #username="ngModel"
-    />
-    <div *ngIf="username.errors && f.submitted">Username is required!</div>
-  </div>
-  <div>
-    <label for="password">Password</label>
-    <input
-      type="password"
-      name="password"
-      [(ngModel)]="form.password"
-      required
-      #password="ngModel"
-    />
-    <div *ngIf="password.errors && f.submitted">
-      <div *ngIf="password.errors['required']">Password is required</div>
+<div class="px-3 md:lg:xl:px-40 py-10 font-serif">
+  <div class="flex justify-center">
+    <div
+      class="bg-slate-900 text-white overflow-hidden rounded p-8 flex flex-col drop-shadow-2xl antialiased w-1/3"
+    >
+      <form
+        name="form"
+        (ngSubmit)="f.form.valid && onSubmit()"
+        #f="ngForm"
+        novalidate
+      >
+        <div class="mb-4 text-center text-xl font-bold">Login</div>
+        <div class="mb-2">
+          <label
+            for="username"
+            class="block mb-2 text-base font-medium text-gray-900 dark:text-gray-300 uppercase"
+            >Username</label
+          >
+          <input
+            type="text"
+            id="username"
+            name="username"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-base rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
+            placeholder="Username"
+            [(ngModel)]="form.username"
+            required
+            #username="ngModel"
+          />
+          <div *ngIf="username.errors && f.submitted">
+            Username is required
+          </div>
+        </div>
+        <div class="mb-2">
+          <label
+            for="password"
+            class="block mb-2 text-base font-medium text-gray-900 dark:text-gray-300 uppercase"
+            >Password</label
+          >
+          <input
+            type="password"
+            id="password"
+            name="password"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-base rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
+            placeholder="Password"
+            [(ngModel)]="form.password"
+            required
+            #password="ngModel"
+          />
+          <div *ngIf="password.errors && f.submitted">
+            <div *ngIf="password.errors['required']">Password is required</div>
+          </div>
+        </div>
+
+        <div class="flex justify-center my-4">
+          <button
+            type="submit"
+            class="font-serif border border-gray-200 bg-gray-200 text-gray-700 rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:bg-gray-300 focus:outline-none focus:shadow-outline"
+          >
+            Login
+          </button>
+        </div>
+      </form>
     </div>
   </div>
-  <div>
-    <button>Login</button>
-  </div>
-</form>
+</div>

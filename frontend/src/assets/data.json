@@ -13,5 +13,10 @@
     "class": "Warrior",
     "color": "bg-red-800",
     "image": "https://www.wowfan.cz/images/1124/heroes/8rnwvzplkpmd7aq_1485023763.jpg"
+  },
+  "Tirion Fordring": {
+    "class": "Paladin",
+    "color": "bg-yellow-500",
+    "image": "https://vignette.wikia.nocookie.net/wowwiki/images/6/6f/Tirion_in_Call_of_the_Crusade.jpg/revision/latest?cb=20140503154736"
   }
 }
